@@ -1,77 +1,101 @@
 #include <iostream>
 using namespace std;
+
 int main()
 {
-    int mat1[5][5], mat2[5][5], matMul[5][5];
-    int row1, row2, col1, col2;
-    cout << "Enter The 1st row: ";
+    int row1, col1, row2, col2;
+
+    // Input for the size of the first matrix
+    cout << "Enter the number of rows for the 1st matrix: ";
     cin >> row1;
-    cout << "Enter The 2nd row: ";
-    cin >> row2;
-    cout << "Enter The 1st col: ";
+    cout << "Enter the number of columns for the 1st matrix: ";
     cin >> col1;
-    cout << "Enter The 2nd col: ";
+
+    // Input for the size of the second matrix
+    cout << "Enter the number of rows for the 2nd matrix: ";
+    cin >> row2;
+    cout << "Enter the number of columns for the 2nd matrix: ";
     cin >> col2;
-    while (col1 !=row2)
+
+    // Check if matrix multiplication is possible
+    while (col1 != row2)
     {
-        cout << "Error. Your 1 matrix Colum isn't equal to 2nd matrix Row Number" << endl;
-        cout << "Please Enter 1st matrix Row & col again: ";
-        cin >> row1 >> col1;
-        cout << "Please Enter 2nd matrix Row & col again: ";
-        cin >> row2 >> col2;
+        cout << "Error: The number of columns in the 1st matrix must be equal to the number of rows in the 2nd matrix." << endl;
+        cout << "Please re-enter the sizes." << endl;
+
+        // Re-input sizes
+        cout << "Enter the number of rows for the 1st matrix: ";
+        cin >> row1;
+        cout << "Enter the number of columns for the 1st matrix: ";
+        cin >> col1;
+        cout << "Enter the number of rows for the 2nd matrix: ";
+        cin >> row2;
+        cout << "Enter the number of columns for the 2nd matrix: ";
+        cin >> col2;
     }
-    cout << "1st Matrix Input: " << endl;
-    for(int i=0; i<row1; i++)
+
+    int mat1[row1][col1], mat2[row2][col2], matMul[row1][col2];
+
+    // Input for the first matrix
+    cout << "Enter elements for the 1st matrix:" << endl;
+    for (int i = 0; i < row1; i++)
     {
-        for(int j=0; j<col1; j++)
+        for (int j = 0; j < col1; j++)
         {
-            cout << "Matrix1[" << i << "][" << j <<"]:";
+            cout << "Matrix1[" << i << "][" << j << "]: ";
             cin >> mat1[i][j];
         }
     }
-    cout << "2nd Matrix Input: " << endl;
-    for(int i=0; i<row1; i++)
+
+    // Input for the second matrix
+    cout << "Enter elements for the 2nd matrix:" << endl;
+    for (int i = 0; i < row2; i++)
     {
-        for(int j=0; j<col1; j++)
+        for (int j = 0; j < col2; j++)
         {
-            cout << "Matrix2[" << i << "][" << j <<"]:";
+            cout << "Matrix2[" << i << "][" << j << "]: ";
             cin >> mat2[i][j];
         }
     }
-    //Matrix Multiplication
-    for(int i=0; i<row1; i++)
+
+    // Matrix Multiplication
+    for (int i = 0; i < row1; i++)
     {
-        for(int j=0; j<col2; j++)
+        for (int j = 0; j < col2; j++)
         {
             matMul[i][j] = 0;
-            for(int k=0; k<col2; k++)
+            for (int k = 0; k < col1; k++)
             {
-                matMul[i][j] += mat1[i][k]*mat2[k][j];
+                matMul[i][j] += mat1[i][k] * mat2[k][j];
             }
         }
     }
-    cout << "1st Matrix is : " << endl;
-    for(int i=0; i <row1; i++)
+
+    // Output the matrices and their multiplication
+    cout << "1st Matrix:" << endl;
+    for (int i = 0; i < row1; i++)
     {
-        for(int j =0; j<col1; j++)
+        for (int j = 0; j < col1; j++)
         {
             cout << mat1[i][j] << " ";
         }
         cout << endl;
     }
-    cout << "2nd Matrix is : " << endl;
-    for(int i=0; i <row2; i++)
+
+    cout << "2nd Matrix:" << endl;
+    for (int i = 0; i < row2; i++)
     {
-        for(int j =0; j<col2; j++)
+        for (int j = 0; j < col2; j++)
         {
             cout << mat2[i][j] << " ";
         }
         cout << endl;
     }
-    cout << "Multiplication" << endl;
-    for(int i=0; i <row1; i++)
+
+    cout << "Multiplication Result:" << endl;
+    for (int i = 0; i < row1; i++)
     {
-        for(int j =0; j<col1; j++)
+        for (int j = 0; j < col2; j++)
         {
             cout << matMul[i][j] << " ";
         }
