@@ -5,7 +5,7 @@ int main()
 {
     int mat1[5][5], mat2[5][5], matSub[5][5];
     int rows, cols;
-    cout << "Welcome to Matrix Cal" <<endll;
+    cout << "Welcome to Matrix Cal" <<endl;
     cout << "Enter The Row Numbers: ";
     cin >> rows;
     cout << "Enter The Colum Numbers: ";
@@ -38,9 +38,9 @@ int main()
         }
     }
     //outputing all matrixs
-    for(int i=0; i <r; i++)
+    for(int i=0; i <rows; i++)
     {
-        for(int j=0; j<c; j++)
+        for(int j=0; j<cols; j++)
         {
             cout <<matSub[i][j] << " ";
         }
