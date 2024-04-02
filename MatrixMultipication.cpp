@@ -1,5 +1,4 @@
-#include <iostram>
-
+#include <iostream>
 using namespace std;
 int main()
 {
@@ -10,7 +9,7 @@ int main()
     cout << "Enter The 2nd row: ";
     cin >> row2;
     cout << "Enter The 1st col: ";
-    cin > col1;
+    cin >> col1;
     cout << "Enter The 2nd col: ";
     cin >> col2;
     while (col1 !=row2)
@@ -21,7 +20,7 @@ int main()
         cout << "Please Enter 2nd matrix Row & col again: ";
         cin >> row2 >> col2;
     }
-    cout << "1st Matrix Input: " << end;
+    cout << "1st Matrix Input: " << endl;
     for(int i=0; i<row1; i++)
     {
         for(int j=0; j<col1; j++)
@@ -30,7 +29,7 @@ int main()
             cin >> mat1[i][j];
         }
     }
-    cout << "2nd Matrix Input: " << end;
+    cout << "2nd Matrix Input: " << endl;
     for(int i=0; i<row1; i++)
     {
         for(int j=0; j<col1; j++)
